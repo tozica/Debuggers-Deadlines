@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(247, 247, 247);
+    font-family: 'Lato',sans-serif;
+}
+
+#premiumHeader{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#imgDiv img{
+   width: 8%;
+   margin-left: 300px;
+   margin-top: 10px;
+}
+
+#firstlastname{
+    font-weight: bolder;
+}
+#email{
+    font-size: 14px;
+}
+#name{
+    text-align: right;
+    float: left;
+}
+#imgandname{
+    margin-right: 300px;
+}
+
+#imgandname img{
+    margin-top: 17px;
+    margin-left: 5px;
+}
+#surrounded{
+    width: 33%;
+    height: auto;
+    background-color: rgb(230, 227, 227);
+    margin: auto;
+    margin-left: 500px;
+    margin-top: 100px;
+    border-radius: 10px;
+    padding-top: 10px;
+
+    
+}
+
+#mmyy{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#mmyy p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#mmyy input{
+    width: 100px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#textboxes input{
+    width: 80%;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    padding-right: 80px;
+    
+}
+
+#visa{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#visa img{
+    width: 20%;
+}
+
+.btn{
+    margin-top: 30px;
+}
+
+.btn input{
+    font-family: 'Lato',sans-serif;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+}

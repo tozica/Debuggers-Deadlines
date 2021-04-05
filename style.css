@@ -1,0 +1,180 @@
+/* Radio: Jovanovic Svetozar */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+body{
+    margin: auto;
+    padding: 0;
+    font-family: 'Lato',sans-serif;
+    
+}
+#header{
+    background-color: white; 
+    border-bottom: 0.5px solid lightgrey; 
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    padding-right: 0;
+    margin: 0;
+    box-shadow: 0 10px 15px rgba(0,0,0,.1);
+    width: calc(100% - padding-right);  
+}
+#header img{
+    margin: auto;
+    margin-left: 100px;
+}
+#header ul {
+    padding-right: 200px;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+    
+}
+#header ul li{
+    padding-left: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: gray;
+    font-size: 20px;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+}
+
+.body0{
+    width: calc(100% - padding);
+    padding: 100px;
+    margin: auto;
+}
+
+.body1{
+    padding-right: 30px;
+    width: calc(50% - 30px);
+    float: left;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.body2{
+    width: 50%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 110px;
+    margin: 0;
+}
+.body2 img{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.inBody1 h1{
+   font-size: 70px;
+   font-family: 'Lato',sans-serif;
+   padding: 0;
+   margin: 0;
+   margin-bottom: 10px;
+}
+
+.inBody1{
+    padding-top: 50px;
+    padding-left: 40px;
+}
+
+.inBody1 p{
+    padding-top: 20px;
+    font-size: 18px;
+    font-family: 'Lato',sans-serif;
+}
+
+.inBody1 input{
+    width: 100%;
+    margin-top: 15px;
+    height: 50px;
+    background-color: lightblue;
+    border-radius: 5px;
+    border-width: 0px;
+    color: darkblue;
+    font-size: 20px;
+    font-family: 'Lato',sans-serif;
+    font-weight: bold;
+}
+
+.body3{
+    width: calc(100% - padding);
+    padding: 100px;
+
+}
+
+#satic{
+    width: 50%;
+}
+
+#latino{
+    font-family: 'Lato',sans-serif;
+    padding-bottom: 0;
+    margin-bottom: -70px;
+    margin-top: 70px;
+}
+#Footer{
+    width: 100%;
+    font-family:'Lato',sans-serif;
+    font-size: 30px;
+    background-color: lightgrey;
+}
+
+#footerP{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#footerC{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content : center;
+    align-items : center;
+}
+.text {
+    text-align: center;
+    padding: 100px 150px;
+}
+.otherFeatures {
+    
+    width: calc(100% - 100px - 100px);
+    padding-top: 70px;
+    padding-left: 100px;
+    margin: 100px;
+    margin-left: 0px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content : space-around;
+    gap: 30px;
+}
+
+.otherFeatures img{
+ /*   margin-left: 160px;*/
+    width: 30%;
+    height: 50%;
+}
+
+.otherFeatures .text {
+    text-align: center;
+    padding:0px;
+}
+#Copyright{
+    font-size: 14px;
+}
+#header li:hover{
+font-weight: bolder;
+color: gray;
+}
+.inBody1 input:hover{
+    box-shadow: 0 10px 15px rgba(0,0,0,.4);
+}
