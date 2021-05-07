@@ -25,7 +25,7 @@
                         <li>Features</li>
                         <li>About us</li>
                         <li>Log in</li>
-                        <li>Sign up</li>
+                        <li><?php echo anchor('Guest/signUp', 'Link', 'class="link-class"') ?></li>
                     </ul>
                 </div>
             </div>
