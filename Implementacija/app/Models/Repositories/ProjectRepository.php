@@ -12,9 +12,9 @@
  * @author Toza
  */
 use \Doctrine\ORM\EntityRepository;
-class UserRepository extends EntityRepository{
-    public function findByUserName($param) {
-        return $this->findBy(['korisnickoime'=>$param]);
+class ProjectRepository extends EntityRepository{
+    public function findByIdUSer($param) {
+        return $this->findBy(['idkorisnik'=>$param]);
     }
     
 }

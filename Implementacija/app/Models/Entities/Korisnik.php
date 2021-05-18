@@ -80,7 +80,11 @@ class Korisnik
      /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Models\Entities\Projekat", mappedBy="idkorisnik", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Models\Entities\Projekat", mappedBy="idkorisnik", orphanRemoval=true
+     *     
+     *     
+      * )
+      * 
      */
     private $myProjects;
 
@@ -348,6 +352,7 @@ class Korisnik
     public function addMyProject(\App\Models\Entities\Projekat $myProject)
     {   
         if(!$this->myProjects->contains($myProject)){
+            echo $this->idkorisnik + $myProject;
             $this->myProjects[] = $myProject;
             $myProject->setIdkorisnik($this);
         }

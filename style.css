@@ -1,0 +1,188 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+ul, ol{
+    list-style-type: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.lightblue{
+    height: 50px;
+    background-image: url(http://localhost/PSI-projekat/Implementacija/img/BlueSkies.jpg);
+    background-size: 100% 100%;
+}
+
+#logo{
+    width: 225px;
+    margin-left: -25px;
+}
+
+.column{
+    padding: 0px;
+}
+#searchBox{
+    margin-top: 12px;
+    border:none;
+    border-radius: 11px;
+    
+}
+#searchBox::placeholder{
+
+    font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    padding-left: 4px;
+  
+    
+}
+#searchBox:focus{
+    border:none;
+    outline: none;
+}
+#right{
+    float: right;
+}
+.header{ 
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#right li {
+    padding-left: 5px;
+}
+
+#right a:hover{
+    border-bottom: white solid 2px;
+}
+
+#right img{
+    width: 26px;
+}
+
+.dropdown-menu{
+    background-color: #40a1ef;
+    font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    
+}
+
+.dropdown-item{
+    color: white;
+}
+
+.menu{
+    background-color: rgb(235, 235, 235);
+    height: 700px;
+    width: 275px;
+    border-top: 2px solid white;
+    display: none;
+}
+
+.list{
+    list-style-type: none;
+   /* padding-top: 20px;*/
+ /*   color : #48b1f0;*/
+}
+
+.list a {
+    text-decoration: none;
+    color : #48b1f0;
+    padding-top: 2px;
+}
+
+.list li:hover{
+    background-color: rgb(202, 202, 202);
+}
+
+.list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+	color : #48b1f0;
+    cursor:pointer;
+}
+
+.flipProject{
+	color : #48b1f0;
+}
+
+.list img{
+    width: 20px;
+}
+
+.flipProject, .flipArchived, .flipLabels{
+    cursor:pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flipProject a{
+    margin-bottom: 6px;
+}
+
+.flipProject:hover, .flipArchived:hover, .flipLabels:hover{
+    background-color: rgb(202, 202, 202);
+}
+
+.create{
+    display: none; 
+    width: 20px; 
+    height: 20px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.moreOptionsImg{
+    width: 20px; 
+    height: 20px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+
+.liElem{
+    cursor:pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+	color: #48b1f0;
+}
+
+
+.projectSection li {
+    color: #48b1f0;
+}
+
+.modalForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modalForm input{
+    margin-bottom: 3px;
+    border: 1px solid lightgray;
+}
+.imgsProjectView{
+    display: flex;
+    justify-content: center;
+}
+.imgsProjectView img{
+    width: 208px;
+    height: 162px;
+}
+.listView{
+    margin-right: 30px;
+}
+.pickTypeOfProject{
+    margin-top: 20px;
+}
+.papanelProject{
+	color : #48b1f0;
+}

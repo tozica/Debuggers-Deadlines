@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Projekat
  *
  * @ORM\Table(name="projekat", indexes={@ORM\Index(name="idKorisnik_idx", columns={"idKorisnik"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\ProjectRepository")
  */
 class Projekat
 {
@@ -45,7 +45,7 @@ class Projekat
     /**
      * @var \App\Models\Entities\Korisnik
      *
-     * @ORM\ManyToOne(targetEntity="App\Models\Entities\Korisnik")
+     * @ORM\ManyToOne(targetEntity="App\Models\Entities\Korisnik", cascade={"persist"})
      * @ORM\JoinColumns({
      *  @ORM\JoinColumn(name="idkorisnik", referencedColumnName="idkorisnik")
      * })
@@ -144,7 +144,7 @@ class Projekat
      * @return Projekat
      */
     public function setIdkorisnik(\App\Models\Entities\Korisnik $idkorisnik = null)
-    {
+    {   
         $this->idkorisnik = $idkorisnik;
 
         return $this;

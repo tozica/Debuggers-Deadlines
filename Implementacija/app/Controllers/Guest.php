@@ -77,6 +77,7 @@ class Guest extends BaseController
                 return $this->viewPage('logIn', 
                     $errors);
             }
-            return view('welcome_message');
+            $this->session->set('userId', $user[0]->getIdkorisnik());
+            return redirect()->to(site_url('User'));
         }
 }
