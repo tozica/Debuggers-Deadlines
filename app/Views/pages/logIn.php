@@ -1,18 +1,13 @@
-<?php namespace App\Controllers;
-namespace App\Models;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Sign up!</title>
-    <link rel = "icon" href = "http://localhost/PSI-projekat/images/justLogo.png"
+   
+    <title>Log in to DeadLines</title>
+    <link rel = "icon" href = "http://localhost/PSI-project/images/justLogo.png"
         type = "image/x-icon"> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/
-bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body{
     background-color: rgb(231, 229, 229);
@@ -195,56 +190,69 @@ hr{
     </style>
 </head>
 <body>
-    <form id="form" name="signUpForm" action="<?= site_url("Gost/signUpSubmit") ?>" method="post">
+    <form id = "form" name="loginform" action="<?= site_url("Guest/loginSubmit") ?>" method="post">
         <div id="header">
-            <a href="SignUp.php"><img src="http://localhost/PSI-projekat/images/logo2.jpg" alt=""></a>
-            <h2>Sign up</h2>
+            <a href="../index.html"><img src="http://localhost/PSI-project/Implementacija/img/logo2.jpg" alt=""></a>
+            <h2>Log in</h2>
         </div>
-         
+        <div id="buttons">
+            <input type='button' value='Continue with Google'>
+            <input type='button' value='Continue with Facebook'>
+            <input type='button' value='Continue with Apple'>
+        </div>
+        <!-- <hr> -->
+        <table class="myHr">
+            <tr>
+                <td style="border-bottom: 0.5px solid lightgray; width: 47%">&nbsp;</td>
+                <td style="vertical-align:middle;text-align:center" rowspan="2">
+                    <p id="or">&nbspOR&nbsp</p>
+                </td>
+                <td style="border-bottom: .5px solid lightgray; width: 47%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr></table>
         <div id="email">
-            <p class="manual">Name</p>
-            <font color='red'>
-            <?php if(!empty($errors['name'])) 
-                echo $errors['name'];
-            ?></font>
-            <input class="textForm" type="text" value="" name="name">
-            <p class="manual">Surname</p>
-            <font color='red'>
-            <?php if(!empty($errors['surname'])) 
-                echo $errors['surname'];
-            ?></font>
-            <input class="textForm" type="text" value="" name="surname">
-            <p class="manual">Email</p>
-            <font color='red'>
-            <?php if(!empty($errors['email'])) 
-                echo $errors['email'];
-            ?></font>
-            <input class="textForm" type="text" value="" name="email">
             <p class="manual">Username</p>
-            <font color='red'>
-            <?php if(!empty($errors['username'])) 
-                echo $errors['username'];
-            ?></font>
-             <?php if(isset($poruka)) echo "<font color='red'>$poruka</font><br>"; ?>
-            <input class="textForm" type="text" value="" name="username">
+            <font color="red">
+                <?php
+                    if(!empty($errors['username'])){
+                        echo $errors['username'];
+                    }
+                 ?>  
+            </font>
+            <input name="username" class="textForm" type="text" value="">
             <p class="manual">Password</p>
-            <font color='red'>
-            <?php if(!empty($errors['password'])) 
-                echo $errors['password'];
-            ?></font>
-            <input class="textForm" type="password" value="" name="password">
-            <p id="condition">Your password must be at least 8 characters long. Avoid common words or patterns.</p>
-            <a href="../app/app.html"><input id="logIn" type="Submit" value="Sign up"></a>
-            
+            <font color="red">
+                <?php
+                    if(!empty($errors['pass'])){
+                        echo $errors['pass'];
+                    }
+                ?> 
+            </font>
+            <input name="pass" class="textForm" type="password" value="">
+            <font color="red">
+                <?php
+                    if(isset($poruka)){
+                        echo "$poruka";
+                    }
+                ?> 
+            </font>
+            <input id="logIn" type="submit" value="Log in">
             <div class="forCheck">
                 <input id="logged" type="checkbox">
                 <label for="logged">Keep me logged in</label>
             </div>
+            <a href=""><p class="forCheck">Forgot your password?</p></a>
         </div>
+
         <hr>
         <div id="footer">
-           <p>Already signed up? 
-               <a id="pSign" href="log_in.php">Go to login </a>
+           <p>Don't have account? 
+               <?php                           
+               echo anchor("Guest/signUp", "Sign up");
+               ?>
             </p>
            <p class="footerSupport">
                <a class="footerSupport" href="">DeadLines support</a>
