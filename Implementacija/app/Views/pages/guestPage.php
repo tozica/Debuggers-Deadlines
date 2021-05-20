@@ -6,14 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deadlines</title>
-    <link rel="stylesheet" href="http://localhost/PSI-projekat/Implementacija/style.css">
-    <link rel = "icon" href = "http://localhost/PSI-projekat/Implementacija/justLogo.png"
-    type = "image/x-icon"> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/
-    bootstrap/4.3.1/css/bootstrap.min.css">
   
-
-
+    <link rel = "icon" href = "http://localhost/PSI-Projekat/Implementacija/justLogo.png"
+    type = "image/x-icon"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="http://localhost/PSI-projekat/Implementacija/img/style.css">
 </head>
 <body>
     <div class="container">
@@ -106,7 +103,7 @@
         </div>
     </div>
     <script>
-        window.onscroll = function() {myFunction()};
+        window.onscroll = function() {myFunction();};
 
         // Get the navbar
         var navbar = document.getElementById("header");
@@ -117,7 +114,7 @@
         // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
         function myFunction() {
             if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
+                navbar.classList.add("sticky");
             } else {
                 navbar.classList.remove("sticky");
             }

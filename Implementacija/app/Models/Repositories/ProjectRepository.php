@@ -16,5 +16,10 @@ class ProjectRepository extends EntityRepository{
     public function findByIdUSer($param) {
         return $this->findBy(['idkorisnik'=>$param]);
     }
-    
+    public function findByName($param) {
+        return $this->findBy(['ime'=>$param]);
+    }
+    public function deleteByIdFunc($param){
+       
+    }
 }

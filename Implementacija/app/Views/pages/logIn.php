@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <title>Log in to DeadLines</title>
-    <link rel = "icon" href = "http://localhost/PSI-projekat/images/justLogo.png"
+    <link rel = "icon" href = "http://localhost/PSI-projekat/img/justLogo.png"
         type = "image/x-icon"> 
     <style>
         body{
@@ -192,7 +192,7 @@ hr{
 <body>
     <form id = "form" name="loginform" action="<?= site_url("Guest/loginSubmit") ?>" method="post">
         <div id="header">
-            <a href="../index.html"><img src="http://localhost/PSI-projekat/images/logo2.jpg" alt=""></a>
+            <a href="../index.html"><img src="http://localhost/PSI-projekat/Implementacija/img/logo2.jpg" alt=""></a>
             <h2>Log in</h2>
         </div>
         <div id="buttons">

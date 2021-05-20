@@ -78,6 +78,10 @@ class Guest extends BaseController
                     $errors);
             }
             $this->session->set('userId', $user[0]->getIdkorisnik());
+            $this->session->set('userNameSession', $user[0]->getKorisnickoime());
+            $this->session->set('name', $user[0]->getIme());
+            $this->session->set('lastname', $user[0]->getPrezime());
+            $this->session->set('mail', $user[0]->getMail());
             return redirect()->to(site_url('User'));
         }
 }
