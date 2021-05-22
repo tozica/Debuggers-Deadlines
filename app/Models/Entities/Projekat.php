@@ -45,7 +45,7 @@ class Projekat
     /**
      * @var \App\Models\Entities\Korisnik
      *
-     * @ORM\ManyToOne(targetEntity="App\Models\Entities\Korisnik", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Models\Entities\Korisnik")
      * @ORM\JoinColumns({
      *  @ORM\JoinColumn(name="idkorisnik", referencedColumnName="idkorisnik")
      * })
@@ -144,7 +144,7 @@ class Projekat
      * @return Projekat
      */
     public function setIdkorisnik(\App\Models\Entities\Korisnik $idkorisnik = null)
-    {   
+    {
         $this->idkorisnik = $idkorisnik;
 
         return $this;

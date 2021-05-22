@@ -8,13 +8,13 @@
 
 /**
  * Description of userRepository
- *
+ * 
  * @author Toza
+ * 
  */
 use \Doctrine\ORM\EntityRepository;
-class UserRepository extends EntityRepository{
-    public function findByUserName($param) {
-        return $this->findBy(['korisnickoime'=>$param]);
+class AlarmRepository extends EntityRepository{
+    public function findByIdTask($param) {
+        return $this->findBy(['idtask'=>$param]);
     }
-    
 }

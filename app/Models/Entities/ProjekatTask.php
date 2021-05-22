@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ProjekatTask
  *
- * @ORM\Table(name="projekat_task", indexes={@ORM\Index(name="idPro_idx", columns={"idPro"}), @ORM\Index(name="idTaskPro_idx", columns={"idTaskPro"})})
- * @ORM\Entity
+ * @ORM\Table(name="projekat_task", indexes={@ORM\Index(name="idPro_idx", columns={"idProjekat"}), @ORM\Index(name="idTaskPro_idx", columns={"idTaskPro"})})
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\ProjectTaskRepository")
  */
 class ProjekatTask
 {
@@ -17,7 +17,7 @@ class ProjekatTask
      *
      * @ORM\ManyToOne(targetEntity="App\Models\Entities\Projekat")
      * @ORM\JoinColumns({
-     *  @ORM\JoinColumn(name="idpro", referencedColumnName="idprojekat")
+     *  @ORM\JoinColumn(name="idpro", referencedColumnName="idProjekat")
      * })
      */
     private $idpro;

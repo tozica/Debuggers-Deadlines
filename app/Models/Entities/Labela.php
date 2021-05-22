@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * Labela
  *
  * @ORM\Table(name="labela")
- * @ORM\Entity
+ * 
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\LabelRepository")
  */
 class Labela
 {

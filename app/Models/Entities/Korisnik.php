@@ -80,11 +80,7 @@ class Korisnik
      /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Models\Entities\Projekat", mappedBy="idkorisnik", orphanRemoval=true
-     *     
-     *     
-      * )
-      * 
+     * @ORM\OneToMany(targetEntity="App\Models\Entities\Projekat", mappedBy="idkorisnik", orphanRemoval=true)
      */
     private $myProjects;
 
@@ -307,7 +303,7 @@ class Korisnik
     public function addMyTask(\App\Models\Entities\Task $myTask)
     {
         if(!$this->myTasks->contains($myTask)){
-            $this->myTasks[] = $myProject;
+            $this->myTasks[] = $myTask;
             $myTask->setIdkorisnik($this);
         }
 
@@ -352,7 +348,6 @@ class Korisnik
     public function addMyProject(\App\Models\Entities\Projekat $myProject)
     {   
         if(!$this->myProjects->contains($myProject)){
-            echo $this->idkorisnik + $myProject;
             $this->myProjects[] = $myProject;
             $myProject->setIdkorisnik($this);
         }
