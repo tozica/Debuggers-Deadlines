@@ -8,18 +8,18 @@ use Doctrine\ORM\Mapping as ORM;
  * Premium
  *
  * @ORM\Table(name="premium", uniqueConstraints={@ORM\UniqueConstraint(name="brojKartice_UNIQUE", columns={"brojKartice"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\PremiumRepository")
  */
 class Premium
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="idkorisnika", type="integer", nullable=false)
+     * @ORM\Column(name="idPremium", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idkorisnika;
+    private $idPremium;
 
     /**
      * @var \DateTime
@@ -49,16 +49,23 @@ class Premium
      */
     private $cvc;
 
-
+    /**
+     * @var \App\Models\Entities\Korisnik
+     *
+     * @ORM\OneToOne(targetEntity="App\Models\Entities\Korisnik")
+     * @ORM\JoinColumn(name="idkorisnikPremium", referencedColumnName="idkorisnik")
+     * })
+     */
+    private $idkorisnikPremium;
 
     /**
-     * Get idkorisnika.
+     * Get idPremium.
      *
      * @return int
      */
-    public function getIdkorisnika()
+    public function getIdpremium()
     {
-        return $this->idkorisnika;
+        return $this->idPremium;
     }
 
     /**
@@ -155,5 +162,27 @@ class Premium
     public function getCvc()
     {
         return $this->cvc;
+    }
+    
+     /**
+     * Get idkorisnikPremium.
+     *
+     * @return \App\Models\Entities\Korisnik|null
+     */
+    public function getIdkorisnikPremium(){
+        return $this->idkorisnikPremium;
+    }
+    
+    
+    /**
+     * Set idkorisnikPremium.
+     *
+     * @param \App\Models\Entities\Korisnik|null $idtask
+     *
+     * @return Alarm
+     */
+    public function setIdkorisnikPremium($idkorisnikPremium){
+        $this->idkorisnikPremium = $idkorisnikPremium;
+        return $this;
     }
 }

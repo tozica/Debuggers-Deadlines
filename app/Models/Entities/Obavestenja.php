@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * Obavestenja
  *
  * @ORM\Table(name="obavestenja", uniqueConstraints={@ORM\UniqueConstraint(name="idobavestenja_UNIQUE", columns={"idobavestenja"})}, indexes={@ORM\Index(name="idkorisnik_idx", columns={"idkorisnik"})})
- * @ORM\Entity
+ * @ORM\Entity * @ORM\Entity(repositoryClass="App\Models\Repositories\NotificationRepository")
+ * 
  */
 class Obavestenja
 {
@@ -37,6 +38,13 @@ class Obavestenja
      * })
      */
     private $idkorisnik;
+     
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="naslov", type="string", length=45, nullable=false)
+     */
+    private $naslov;
 
 
 
@@ -96,5 +104,29 @@ class Obavestenja
     public function getIdkorisnik()
     {
         return $this->idkorisnik;
+    }
+    
+    /**
+     * Get naslov.
+     *
+     * @return string
+     */
+    public function getNaslov()
+    {
+        return $this->naslov;
+    }
+    
+     /**
+     * Set naslov.
+     *
+     * @param string $naslov
+     *
+     * @return Obavestenja
+     */
+    public function setNaslov($naslov)
+    {
+        $this->naslov = $naslov;
+
+        return $this;
     }
 }

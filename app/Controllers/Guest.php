@@ -9,19 +9,21 @@ use App\Models\Repositories;
 class Guest extends BaseController
 {
     public function index(){
-           if(isset($_POST['id'])){
-            $id = $_POST['id'];
-            $task=$this->doctrine->em->getRepository(\App\Models\Entities\Task::class)->find($id);
-            $task->setPrioritet(-1);
-            $this->doctrine->em->persist($task);
-            $this->doctrine->em->flush();
-            $_POST['id']=null;
-            echo "Hello";
-        }
-        else
-        {
-        echo view('pages/guestPage');
-        }
+        
+        if(isset($_POST['id'])){
+         $id = $_POST['id'];
+         $task=$this->doctrine->em->getRepository(\App\Models\Entities\Task::class)->find($id);
+         $task->setPrioritet(-1);
+         $this->doctrine->em->persist($task);
+         $this->doctrine->em->flush();
+         $_POST['id']=null;
+//         echo "Hello";
+             }
+                     else{
+
+                        echo view('pages/guestPage');
+        
+                     }
     }
     
     public function showPage($page){
@@ -97,7 +99,12 @@ class Guest extends BaseController
                     $errors);
             }
             $this->session->set('korisnik', $user[0]->getIdkorisnik());
-            return redirect()->to(site_url('User'));
+            if($user[0]->getTip() == 1){
+                return redirect()->to(site_url('User'));
+            }
+            else if($user[0]->getTip() == 0){
+                return redirect()->to(site_url('Administrator'));
+            }
         }
         
         

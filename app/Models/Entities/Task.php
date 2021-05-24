@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Task
  *
  * @ORM\Table(name="task", indexes={@ORM\Index(name="idkorisnik_idx", columns={"idkorisnik"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\UserRepository")
  */
 class Task
 {
@@ -52,13 +52,20 @@ class Task
      */
     private $idkorisnik;
 
-
+   /**
+     * @var int
+     *
+     * @ORM\Column(name="vidljivost", type="integer", nullable=false)
+     */
+    private $vidljivost;
 
     /**
      * Get idtask.
      *
      * @return int
      */
+    
+  
     public function getIdtask()
     {
         return $this->idtask;
@@ -148,6 +155,22 @@ class Task
         $this->idkorisnik = $idkorisnik;
 
         return $this;
+    }
+      public function setVidljivost($vidljivost)
+    {
+        $this->vidljivost = $vidljivost;
+
+        return $this;
+    }
+
+    /**
+     * Get prioritet.
+     *
+     * @return int
+     */
+    public function getVidljivost()
+    {
+        return $this->vidljivost;
     }
 
     /**

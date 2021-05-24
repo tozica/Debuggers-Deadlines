@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * LabelaTask
  *
  * @ORM\Table(name="labela_task", indexes={@ORM\Index(name="idlabela_idx", columns={"idlabela"}), @ORM\Index(name="idTask_idx", columns={"idtaskk"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\LabelTaskRepository")
  */
 class LabelaTask
 {

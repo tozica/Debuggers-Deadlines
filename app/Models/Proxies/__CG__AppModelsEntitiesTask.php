@@ -66,10 +66,10 @@ class Task extends \App\Models\Entities\Task implements \Doctrine\ORM\Proxy\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'idtask', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'sadrzaj', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'datum', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'prioritet', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'idkorisnik'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'idtask', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'sadrzaj', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'datum', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'prioritet', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'idkorisnik', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'vidljivost'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'idtask', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'sadrzaj', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'datum', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'prioritet', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'idkorisnik'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'idtask', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'sadrzaj', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'datum', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'prioritet', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'idkorisnik', '' . "\0" . 'App\\Models\\Entities\\Task' . "\0" . 'vidljivost'];
     }
 
     /**
@@ -266,6 +266,28 @@ class Task extends \App\Models\Entities\Task implements \Doctrine\ORM\Proxy\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIdkorisnik', [$idkorisnik]);
 
         return parent::setIdkorisnik($idkorisnik);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setVidljivost($vidljivost)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setVidljivost', [$vidljivost]);
+
+        return parent::setVidljivost($vidljivost);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getVidljivost()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getVidljivost', []);
+
+        return parent::getVidljivost();
     }
 
     /**

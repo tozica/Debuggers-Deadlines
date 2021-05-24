@@ -3,32 +3,153 @@
 namespace App\Controllers;
 
 class User extends BaseController
-{
+{   public $ime="";
+    public static $sort=0;
 	public function index()
 	{   
-            try{
-                             
+            try{ 
                 $id=$this->session->get("korisnik");
-                $user=$this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($id);
+                 $projects = $this->doctrine->em->getRepository(\App\Models\Entities\Projekat::class)->
+                     findByIdUSer($id);
+                 $user=$this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($id); 
+                
+                if ($this->session->get('flag')==0){
+                   $tasks=$user->getMyTasks();
+                         foreach ($tasks as $task) {
+                             $task->setVidljivost(1);
+                              $this->doctrine->em->persist($task);
+                             }
+                         $this->doctrine->em->flush();
+                         $data['flag']=0;
+                }
+                else  if ($this->session->get('flag')==1){
+                    $data['flag']=1;
+                    $data['search']=$this->session->get("search");
+                }
+                else if($this->session->get('flag')==2){ 
+                    $data['flag']=2;
+                }else{
+                     $data['flag']=3;
+                     $data['labela']=$this->session->get("label");
+                }
+                $tasks=$user->getMyTasks();
+                $tasks= $this->sortTasks($tasks);
+                
+                
+                $data['tasks']=$tasks;
+                $data['labels']=$this->getLabelTasks();
                 $data['projects'] = $projects;
+                $data['notifications']=$this->getLatestNotifications();
                 $data['username'] = $user->getKorisnickoime();
                 $data['name'] = $user->getIme();
                 $data['lastname'] = $user->getPrezime();
                 $data['mail'] = $user->getMail();
                 $data['korisnik']=$user;
-                $data['tasks']=$user->getMyTasks();
                 $alarms = $this->doctrine->em->getRepository(\App\Models\Entities\Alarm::class)
                     ->findAll();
                 $data['alarms']=$alarms;
-		return view('pages/Tasks',$data);
+                return view('pages/Tasks',$data);
+                
         
-                 }catch(\Exception $e){
+            }catch(\Exception $e){
          
                echo $e;
 
         }
 	}
-        
+        public function sortTasks($tasks){
+            if($this->session->get('sort')==0){
+                 
+                }
+                else
+                if($this->session->get('sort')==1){
+                    $array = $tasks->getValues();
+               usort($array, function($a, $b){
+                    return ($a->getSadrzaj() < $b->getSadrzaj()) ? -1 : 1 ;
+               });
+
+                $tasks->clear();
+                foreach ($array as $item) {
+                    $tasks->add($item);
+                }
+                }
+               
+                else
+                if($this->session->get('sort')==2){
+                   $array = $tasks->getValues();
+                usort($array, function($a, $b){
+                    return ($a->getSadrzaj() > $b->getSadrzaj()) ? -1 : 1 ;
+              });
+
+               $tasks->clear();
+                foreach ($array as $item) {
+                   $tasks->add($item);
+                }
+                }
+                else
+                
+                
+                if($this->session->get('sort')==3){
+                     $array = $tasks->getValues();
+                usort($array, function($a, $b){
+                    return ($a->getPrioritet() < $b->getPrioritet()) ? -1 : 1 ;
+                });
+
+                $tasks->clear();
+                foreach ($array as $item) {
+                    $tasks->add($item);
+                }
+            }
+                
+               else 
+                if($this->session->get('sort')==4){
+                    $array = $tasks->getValues();
+                    usort($array, function($a, $b){
+                       return ($a->getPrioritet() > $b->getPrioritet()) ? -1 : 1 ;
+           });
+
+                   $tasks->clear();
+                   foreach ($array as $item) {
+                   $tasks->add($item);
+                   }
+                }
+            return $tasks;
+        }
+        public function search(){
+            $AllTasks=$this->doctrine->em->getRepository(\App\Models\Entities\Task::class)->findAll();
+                 foreach ($AllTasks as $task) {
+                             $task->setVidljivost(0);
+                              $this->doctrine->em->persist($task);
+                             }
+                         $this->doctrine->em->flush(); 
+                 $id=$this->session->get("korisnik");
+                 $projects = $this->doctrine->em->getRepository(\App\Models\Entities\Projekat::class)->
+                     findByIdUSer($id);
+                 $user=$this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($id); 
+                     $search=$this->request->getVar('search');
+                     $tasksAll=$this->doctrine->em->getRepository(\App\Models\Entities\Task::class)->findBySadrzaj($search);
+                         foreach ($tasksAll as $task) {
+                             $task->setVidljivost(1);
+                              $this->doctrine->em->persist($task);
+                             }
+                         $this->doctrine->em->flush(); 
+                       $this->session->set('search', $search);
+                        $this->session->set('flag',1); 
+                        return redirect()->to(site_url('User'));
+        }
+         public function showSettings() {
+             $projects = $this->doctrine->em->getRepository(\App\Models\Entities\Projekat::class)->
+                        findByIdUSer($this->session->get('korisnik'));
+                $user = $this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($this->session->get("korisnik"));
+                $data['projects'] = $projects;
+                $data['username'] = $user->getKorisnickoime();
+                $data['name'] = $user->getIme();
+                $data['lastname'] = $user->getPrezime();
+                $data['mail'] = $user->getMail();
+                $data['newUserName']="";
+                 $data['newPassword']="";
+		return view('pages/settingsView', $data);
+        }
         public function addLabel($labelName,$task){
             $label=null;
             if($labelName!=""){
@@ -62,6 +183,7 @@ class User extends BaseController
                 $task->setDatum($datum);
                 $task->setPrioritet($priority);
                 $task->setSadrzaj($taskName);
+                $task->setVidljivost(0);
                 $idUser= $this->session->get('korisnik');
                 $user=$this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($idUser);
                 if($alarm=="1"){
@@ -75,7 +197,18 @@ class User extends BaseController
                 $this->doctrine->em->persist($task);
 
                 $this->doctrine->em->flush();
-
+                $method=$this->request->getVar('method');
+                if($method=="search"){
+                    return $this->search();
+                }
+                else if($method=="today"){
+                    return $this->today();
+                }
+                else if($method=="label"){
+                    $this->ime=$this->request->getVar('labelName');
+                    return $this->label();
+                }
+                
                  return redirect()->to(site_url("User"));
            }catch(\Exception $e){
                echo $e;
@@ -137,12 +270,12 @@ class User extends BaseController
     }
     public function addProject(){
 
-            $myProject = new Projekat();
+            $myProject = new \App\Models\Entities\Projekat();
             $myProject->setIme($this->request->getVar('nameOfProject'));
             $myProject->setTip(0);
             $myProject->setArhiviran(0);
             $user= $this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)
-                    ->find($this->session->get('userId'));
+                    ->find($this->session->get('korisnik'));
             if($this->request->getVar('hiddenForType') == "list"){
                 $myProject->setTip(0);
             }else{
@@ -197,7 +330,7 @@ class User extends BaseController
 
             
             $b = true;
-            $user = $this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($this->session->get("userId"));
+            $user = $this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($this->session->get("korisnik"));
             $newUserName = $this->request->getVar('userNameField');
             $newName = $this->request->getVar('nameField');
             $lastName = $this->request->getVar('LastNameField');
@@ -240,7 +373,7 @@ class User extends BaseController
             }
             else{
 //                $this->writeErrorSettings(null);
-                $user = $this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($this->session->get("userId"));
+                $user = $this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($this->session->get("korisnik"));
                 $data['username'] = $user->getKorisnickoime();
                 $data['name'] = $user->getIme();
                 $data['lastname'] = $user->getPrezime();
@@ -249,4 +382,134 @@ class User extends BaseController
             }
                
             }
+            public function today(){
+                try{
+                $this->session->set('flag',2);
+                $AllTasks=$this->doctrine->em->getRepository(\App\Models\Entities\Task::class)->findAll();
+                 foreach ($AllTasks as $task) {
+                             $task->setVidljivost(0);
+                              $this->doctrine->em->persist($task);
+                             }
+                         $this->doctrine->em->flush(); 
+                $date = date("Y-m-d");
+                $AllTasks=$this->doctrine->em->getRepository(\App\Models\Entities\Task::class)->findAll();
+                foreach($AllTasks as $task){
+                    if($task->getDatum()->format("Y-m-d")==$date){
+                             $task->setVidljivost(1);
+                              $this->doctrine->em->persist($task);
+                             }
+                         $this->doctrine->em->flush();
+                    
+                }
+                
+                return redirect()->to(site_url('User'));
+                 }catch(\Exception $e){
+               echo $e;
+           }
+            }
+            public function inbox(){
+                $this->session->set('flag',0);
+                 return redirect()->to(site_url('User'));
+                
+            }
+            public function logOut(){
+                $this->session->destroy();
+                return redirect()->to(site_url('Guest'));
+            }
+            public function getLabelTasks(){
+                try{
+                    $user = $this->doctrine->em->getRepository(\App\Models\Entities\Korisnik::class)->find($this->session->get("korisnik"));
+                    $tasks = $user->getMyTasks();
+                    $userLabels = [];
+                    $labelTasks = $this->doctrine->em->getRepository(\App\Models\Entities\LabelaTask::class)->findAll();
+                  
+                    foreach($tasks as $task){
+                       
+                        $idTask = $task->getIdtask();
+                       // echo $idTask;
+                        foreach($labelTasks as $value){
+                           // echo $value->getIdtaskk()->getIdtask();
+                             
+                            if($value->getIdtaskk()->getIdtask() == $idTask){
+                                
+                                array_push($userLabels,$value);
+                                break;
+                           }
+                       }
+                    }
+                    return $userLabels;
+                } catch (\Exception $e){
+                    echo $e;
+
+                }
+    }
+        public function label(){
+        try{
+            $AllTasks=$this->doctrine->em->getRepository(\App\Models\Entities\Task::class)->findAll();
+                 foreach ($AllTasks as $task) {
+                             $task->setVidljivost(0);
+                              $this->doctrine->em->persist($task);
+                             }
+                         $this->doctrine->em->flush(); 
+                         if($this->ime==""){
+                            $this->ime = $this->request->getVar('labelaTask');
+                            $flag=true;
+                         }
+              
+            $labelTasks = $this->doctrine->em->getRepository(\App\Models\Entities\LabelaTask::class)->findAllLabelTask();
+            foreach ($labelTasks as $lt){
+                if($lt->getIdlabela()->getIme()== $this->ime){
+                    $lt->getIdtaskk()->setVidljivost(1);
+                     $this->doctrine->em->persist($lt->getIdtaskk());
+                    
+                }
+                  $this->doctrine->em->flush();
+            }
+            $this->session->set("label", $this->ime);
+            $this->session->set('flag',3);
+            if($flag==true) $this->ime="";
+            return redirect()->to(site_url('User'));
+        } catch (\Exception $e){
+            echo $e;
+            
+        }
+    }
+    
+    public function SortAlphabeticalA(){
+        $this->session->set('sort', 1);
+        return redirect()->to(site_url('User'));
+    }
+     public function SortAlphabeticalD(){
+         $this->session->set('sort', 2);
+        return redirect()->to(site_url('User'));
+    }
+     public function SortPriorityA(){
+         $this->session->set('sort', 3);
+        return redirect()->to(site_url('User'));
+    }
+     public function SortPriorityD(){
+        $this->session->set('sort', 4);
+        return redirect()->to(site_url('User'));
+    }
+    public function DateAdded(){
+         $this->session->set('sort', 0);
+        return redirect()->to(site_url('User'));
+    }
+     public function getLatestNotifications(){
+        $notifications = $this->doctrine->em->getRepository(\App\Models\Entities\Obavestenja::class)->findAll();
+        $notifications = array_reverse($notifications);
+        $userId = $this->session->get("korisnik");
+        $latestNotification = [];
+        $i = 0;
+        foreach($notifications as $value){
+            if($value->getIdkorisnik()==null || $value->getIdkorisnik()->getIdkorisnik()==$userId){
+                array_push($latestNotification,$value);
+                $i++;
+                if($i == 5){
+                    break;
+                }
+            }
+        }
+        return $latestNotification;
+    }
 }

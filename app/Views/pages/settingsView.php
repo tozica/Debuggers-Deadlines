@@ -7,9 +7,8 @@ namespace App\Models;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Sign up!</title>
-    <link rel = "icon" href = "http://localhost/PSI-projekat/Implementacija/justLogo.png"
+    <link rel = "icon" href = "http://localhost/PSI-project/Implementacija/img/justLogo.png"
         type = "image/x-icon"> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/
 bootstrap/4.3.1/css/bootstrap.min.css">
@@ -252,13 +251,13 @@ table td{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="http://localhost/PSI-projekat/menu.js"></script>
+    <script src="http://localhost/PSI-project/menu.js"></script>
 
 </head>
 <body>
     <form id="form" name="signUpForm" action="settingsChange" method="post">
         <div id="header">
-            <a href=""><img src="http://localhost/PSI-projekat/Implementacija/img/logo2" alt=""></a>
+            <a href=""><img src="http://localhost/PSI-project/Implementacija/img/logo2" alt=""></a>
             <h2>Settings</h2>
         </div>
         <div class="forTable">
@@ -337,7 +336,7 @@ table td{
             <hr>
             
         <div id="footer">
-            <button class="btn btn-primary" type="submit" id="">Confirm</button>
+            <button class="btn btn-primary" type="submit">Confirm</button>
             <hr>
                 
            <p class="footerSupport">

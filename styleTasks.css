@@ -120,16 +120,27 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    color : #48b1f0;
 }
+.flipProject a{
+    margin-bottom: 6px;
+}
+
 
 .flipProject:hover, .flipArchived:hover, .flipLabels:hover{
     background-color: rgb(202, 202, 202);
 }
 
 .create{
-    display: none; 
+/*    display: none; 
     width: 15px; 
-    height: 15px;
+    height: 15px;*/
+    display: none; 
+    width: 20px; 
+    height: 20px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 0;
     
 }
 #tasks{
@@ -188,7 +199,7 @@ flex-direction: column;
 
 .round label {
   background-color: #fff;
-  border: 1px solid #ccc;
+ 
   border-radius: 50%;
   cursor: pointer;
   height: 20px;
@@ -220,7 +231,14 @@ flex-direction: column;
   background-color: #40a1ef;
   border-color: #40a1ef;
 }
-
+#head{
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-top:8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .round input[type="checkbox"]:checked + label:after {
   opacity: 1;
 }
@@ -251,4 +269,98 @@ table{
    border-left:2px #6c757d solid;
    border-right:2px #6c757d solid;
    border-radius:5px;
+}
+
+#projectForm{
+    display: none;
+    width: 0px;
+}
+
+.moreOptionsImg{
+    width: 20px; 
+    height: 20px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+
+.liElem{
+    cursor:pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+	color: #48b1f0;
+}
+
+.liElem p{
+    padding: 0;
+    margin: 0;
+}
+
+
+.projectSection li {
+    color: #48b1f0;
+}
+
+.modalForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modalForm input{
+    margin-bottom: 3px;
+    border: 1px solid lightgray;
+}
+.imgsProjectView{
+    display: flex;
+    justify-content: center;
+}
+.imgsProjectView img{
+    width: 208px;
+    height: 162px;
+}
+.listView{
+    margin-right: 30px;
+}
+.pickTypeOfProject{
+    margin-top: 20px;
+}
+.papanelProject{
+	color : #48b1f0;
+}
+#pickOption{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.usernameSettings{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5px;    
+}
+.usernameSettings a{
+    margin-right: 5px;
+}
+.usernameSettings p{
+    color: gray;
+    margin-right: 15px;
+}
+.usernameSettings label{
+    margin-right: 100px;
+    color: gray;
+}
+.nameSettings p{
+    margin-left: 27px;
+}
+.botomMargin{
+    margin-bottom: 10px;
+}
+#userNameFields, #nameFields, #lastNameFields, #passFields, #emailFields{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.emailSettings p{
+    margin-left: 30px;
 }
