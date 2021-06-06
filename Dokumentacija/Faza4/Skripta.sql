@@ -1,57 +1,66 @@
-CREATE DATABASE  IF NOT EXISTS `baza` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `baza`;
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.9.2
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1    Database: baza
--- ------------------------------------------------------
--- Server version	8.0.18
+-- Host: 127.0.0.1:3306
+-- Generation Time: May 29, 2021 at 12:13 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `baza`
+--
+CREATE DATABASE IF NOT EXISTS `baza` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `baza`;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `alarm`
 --
 
 DROP TABLE IF EXISTS `alarm`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `alarm` (
-  `idAlarm` int(11) NOT NULL,
-  `datum` date NOT NULL,
-  `vreme` time NOT NULL,
+CREATE TABLE IF NOT EXISTS `alarm` (
+  `idAlarm` int(11) NOT NULL AUTO_INCREMENT,
+  `datum` date DEFAULT NULL,
+  `vreme` time DEFAULT NULL,
   `idTask` int(11) NOT NULL,
   PRIMARY KEY (`idAlarm`),
-  KEY `idTask_idx` (`idTask`),
-  CONSTRAINT `idTask` FOREIGN KEY (`idTask`) REFERENCES `task` (`idtask`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `idTask_idx` (`idTask`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `alarm`
 --
 
-LOCK TABLES `alarm` WRITE;
-/*!40000 ALTER TABLE `alarm` DISABLE KEYS */;
-/*!40000 ALTER TABLE `alarm` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `alarm` (`idAlarm`, `datum`, `vreme`, `idTask`) VALUES
+(1, '2021-05-22', NULL, 3),
+(2, '2021-05-27', NULL, 5),
+(3, '2021-05-18', NULL, 8),
+(4, '2021-05-22', NULL, 10),
+(5, '2021-05-19', NULL, 11),
+(6, '2021-05-24', NULL, 15),
+(7, '2021-05-26', NULL, 32);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `korisnik`
 --
 
 DROP TABLE IF EXISTS `korisnik`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `korisnik` (
+CREATE TABLE IF NOT EXISTS `korisnik` (
   `idkorisnik` int(11) NOT NULL AUTO_INCREMENT,
   `ime` varchar(45) NOT NULL,
   `prezime` varchar(45) NOT NULL,
@@ -62,212 +71,312 @@ CREATE TABLE `korisnik` (
   PRIMARY KEY (`idkorisnik`),
   UNIQUE KEY `korisnickoIme_UNIQUE` (`korisnickoIme`),
   UNIQUE KEY `mail_UNIQUE` (`mail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `korisnik`
 --
 
-LOCK TABLES `korisnik` WRITE;
-/*!40000 ALTER TABLE `korisnik` DISABLE KEYS */;
-/*!40000 ALTER TABLE `korisnik` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `korisnik` (`idkorisnik`, `ime`, `prezime`, `mail`, `korisnickoIme`, `sifra`, `tip`) VALUES
+(2, 'Janko', 'Biorac', 'jankomail', 'janule', 'zajecarac99', 1),
+(3, 'Uros', 'Jovanovic', 'uros@yahoo.com', 'urke99', 'zajecarac99', 0),
+(6, 'Uros', 'Jovanovic', 'uros99@yahoo.com', 'zmurke99', 'zajecarac99', 0),
+(9, '', '', '', 'hlglgug.', 'g,fgkfykfy,fu,', 1);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `labela`
 --
 
 DROP TABLE IF EXISTS `labela`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `labela` (
+CREATE TABLE IF NOT EXISTS `labela` (
   `idlabela` int(11) NOT NULL AUTO_INCREMENT,
-  `ime` varchar(45) NOT NULL,
-  `bojaTaga` varchar(45) NOT NULL,
+  `ime` varchar(45) DEFAULT NULL,
+  `bojaTaga` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idlabela`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `labela`
 --
 
-LOCK TABLES `labela` WRITE;
-/*!40000 ALTER TABLE `labela` DISABLE KEYS */;
-/*!40000 ALTER TABLE `labela` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `labela` (`idlabela`, `ime`, `bojaTaga`) VALUES
+(2, 'shoping', NULL),
+(4, 'faks', NULL),
+(5, 'grad', NULL),
+(6, 'novalabela', NULL),
+(7, 'novalabela2', NULL),
+(8, 'teretana', NULL),
+(9, 'Kafa', NULL),
+(10, 'fudbal', NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `labela_task`
 --
 
 DROP TABLE IF EXISTS `labela_task`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `labela_task` (
-  `idlabela` int(11) NOT NULL,
-  `idtaskk` int(11) NOT NULL,
-  KEY `idlabela_idx` (`idlabela`),
-  KEY `idTask_idx` (`idtaskk`),
-  CONSTRAINT `idlabela` FOREIGN KEY (`idlabela`) REFERENCES `labela` (`idlabela`) ON UPDATE CASCADE,
-  CONSTRAINT `idtaskk` FOREIGN KEY (`idtaskk`) REFERENCES `task` (`idtask`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE IF NOT EXISTS `labela_task` (
+  `idlabela` int(11) DEFAULT NULL,
+  `idtaskk` int(11) DEFAULT NULL,
+  `idLabela_task` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idLabela_task`),
+  KEY `idlabela` (`idlabela`),
+  KEY `idtaskk` (`idtaskk`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `labela_task`
 --
 
-LOCK TABLES `labela_task` WRITE;
-/*!40000 ALTER TABLE `labela_task` DISABLE KEYS */;
-/*!40000 ALTER TABLE `labela_task` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `labela_task` (`idlabela`, `idtaskk`, `idLabela_task`) VALUES
+(2, 3, 0),
+(4, 5, 1),
+(5, 7, 2),
+(5, 8, 3),
+(6, 9, 4),
+(7, 9, 5),
+(5, 10, 6),
+(5, 11, 7),
+(2, 12, 8),
+(8, 15, 9),
+(9, 16, 10),
+(10, 32, 11);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `obavestenja`
 --
 
 DROP TABLE IF EXISTS `obavestenja`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `obavestenja` (
+CREATE TABLE IF NOT EXISTS `obavestenja` (
   `idobavestenja` int(11) NOT NULL AUTO_INCREMENT,
   `sadrzaj` varchar(45) NOT NULL,
   `idkorisnik` int(11) DEFAULT NULL,
+  `naslov` varchar(45) NOT NULL,
   PRIMARY KEY (`idobavestenja`),
   UNIQUE KEY `idobavestenja_UNIQUE` (`idobavestenja`),
-  KEY `idkorisnik_idx` (`idkorisnik`),
-  CONSTRAINT `idkorisnik` FOREIGN KEY (`idkorisnik`) REFERENCES `korisnik` (`idkorisnik`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `idkorisnik_idx` (`idkorisnik`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `obavestenja`
 --
 
-LOCK TABLES `obavestenja` WRITE;
-/*!40000 ALTER TABLE `obavestenja` DISABLE KEYS */;
-/*!40000 ALTER TABLE `obavestenja` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `obavestenja` (`idobavestenja`, `sadrzaj`, `idkorisnik`, `naslov`) VALUES
+(1, 'Kupi pivo u povratku', 2, 'Pivo'),
+(2, 'Cips uzmite svi', NULL, 'Cips'),
+(3, 'toza', NULL, 'Toza'),
+(4, 'Jedno veliko toceno', 2, 'Toceno'),
+(5, 'mesano meso i jagnjetina', NULL, 'rostilj'),
+(6, 'Svi na teren veceras', NULL, 'Kosarka'),
+(7, 'TERAJ TE SE SVI U PICKU MATERINU!!!\r\nThe <a> ', NULL, 'Poruka za sve korisnike'),
+(8, 'gajba piva', NULL, 'Pivo'),
+(9, 'krnjaca', 2, 'dunav'),
+(10, 'Uradi VD', 2, 'Janko'),
+(11, 'Write message here', NULL, 'JankoPOslePromene');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `premium`
 --
 
 DROP TABLE IF EXISTS `premium`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `premium` (
-  `idkorisnika` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `premium` (
+  `idPremium` int(11) NOT NULL AUTO_INCREMENT,
   `datumisteka` datetime NOT NULL,
   `brojKartice` int(11) NOT NULL,
   `datumIstekaKartice` datetime NOT NULL,
   `cvc` int(11) NOT NULL,
-  PRIMARY KEY (`idkorisnika`),
+  `idkorisnikPremium` int(11) NOT NULL,
+  PRIMARY KEY (`idPremium`),
   UNIQUE KEY `brojKartice_UNIQUE` (`brojKartice`),
-  CONSTRAINT `idkorisnika` FOREIGN KEY (`idkorisnika`) REFERENCES `korisnik` (`idkorisnik`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `idkorisnikPremium` (`idkorisnikPremium`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `premium`
---
-
-LOCK TABLES `premium` WRITE;
-/*!40000 ALTER TABLE `premium` DISABLE KEYS */;
-/*!40000 ALTER TABLE `premium` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `projekat`
 --
 
 DROP TABLE IF EXISTS `projekat`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `projekat` (
+CREATE TABLE IF NOT EXISTS `projekat` (
   `idProjekat` int(11) NOT NULL AUTO_INCREMENT,
   `ime` varchar(45) NOT NULL,
   `tip` int(11) NOT NULL,
   `arhiviran` tinyint(4) NOT NULL,
   `idKorisnik` int(11) NOT NULL,
   PRIMARY KEY (`idProjekat`),
-  KEY `idKorisnik_idx` (`idKorisnik`),
-  CONSTRAINT `idKorisnikProjekat` FOREIGN KEY (`idKorisnik`) REFERENCES `korisnik` (`idkorisnik`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `idKorisnik_idx` (`idKorisnik`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `projekat`
 --
 
-LOCK TABLES `projekat` WRITE;
-/*!40000 ALTER TABLE `projekat` DISABLE KEYS */;
-/*!40000 ALTER TABLE `projekat` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `projekat` (`idProjekat`, `ime`, `tip`, `arhiviran`, `idKorisnik`) VALUES
+(1, 'Janko', 0, 0, 2);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `projekat_task`
 --
 
 DROP TABLE IF EXISTS `projekat_task`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `projekat_task` (
+CREATE TABLE IF NOT EXISTS `projekat_task` (
   `idPro` int(11) NOT NULL,
   `idTaskPro` int(11) NOT NULL,
+  `idProjekat_task` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idProjekat_task`),
   KEY `idPro_idx` (`idPro`),
-  KEY `idTaskPro_idx` (`idTaskPro`),
-  CONSTRAINT `idPro` FOREIGN KEY (`idPro`) REFERENCES `projekat` (`idProjekat`) ON UPDATE CASCADE,
-  CONSTRAINT `idTaskPro` FOREIGN KEY (`idTaskPro`) REFERENCES `task` (`idtask`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `idTaskPro_idx` (`idTaskPro`)
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `projekat_task`
 --
 
-LOCK TABLES `projekat_task` WRITE;
-/*!40000 ALTER TABLE `projekat_task` DISABLE KEYS */;
-/*!40000 ALTER TABLE `projekat_task` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `projekat_task` (`idPro`, `idTaskPro`, `idProjekat_task`) VALUES
+(1, 13, 48),
+(1, 14, 49),
+(1, 15, 50),
+(1, 16, 51);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sekcija`
+--
+
+DROP TABLE IF EXISTS `sekcija`;
+CREATE TABLE IF NOT EXISTS `sekcija` (
+  `idSekcija` int(11) NOT NULL AUTO_INCREMENT,
+  `idProSekcija` int(11) DEFAULT NULL,
+  `Ime` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idSekcija`),
+  KEY `idPro_idx` (`idProSekcija`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `task`
 --
 
 DROP TABLE IF EXISTS `task`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `task` (
+CREATE TABLE IF NOT EXISTS `task` (
   `idtask` int(11) NOT NULL AUTO_INCREMENT,
   `sadrzaj` varchar(45) NOT NULL,
-  `datum` datetime NOT NULL,
-  `prioritet` int(11) NOT NULL,
+  `datum` datetime DEFAULT NULL,
+  `prioritet` int(11) DEFAULT NULL,
   `idkorisnik` int(11) NOT NULL,
+  `vidljivost` int(11) NOT NULL,
+  `idSekcija` int(11) DEFAULT NULL,
   PRIMARY KEY (`idtask`),
   KEY `idkorisnik_idx` (`idkorisnik`),
-  CONSTRAINT `idKorisnikTask` FOREIGN KEY (`idkorisnik`) REFERENCES `korisnik` (`idkorisnik`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `idSekcija_idx` (`idSekcija`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `task`
 --
 
-LOCK TABLES `task` WRITE;
-/*!40000 ALTER TABLE `task` DISABLE KEYS */;
-/*!40000 ALTER TABLE `task` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `task` (`idtask`, `sadrzaj`, `datum`, `prioritet`, `idkorisnik`, `vidljivost`, `idSekcija`) VALUES
+(3, 'kupovina', '2021-05-22 00:00:00', 4, 2, 0, NULL),
+(5, 'predavanja', '2021-05-27 00:00:00', -1, 2, 0, NULL),
+(6, 'vezbe', '2021-05-21 07:50:16', 5, 2, 0, NULL),
+(7, 'pivo', '2021-05-21 07:50:29', 5, 2, 0, NULL),
+(8, 'rakija', '2021-05-18 00:00:00', 5, 2, 0, NULL),
+(9, 'programiranje', '2021-05-21 14:23:12', 0, 2, 0, NULL),
+(10, 'viski', '2021-05-22 05:51:16', 2, 2, 0, NULL),
+(11, 'votka', '2021-05-19 00:00:00', 1, 2, 0, NULL),
+(12, 'Janko', '2021-05-24 00:00:00', -1, 2, 0, NULL),
+(13, 'Janko', '2021-05-24 06:05:24', -1, 2, 0, NULL),
+(14, 'Janko', '2021-05-24 06:05:53', -1, 2, 0, NULL),
+(15, 'Brale', '2021-05-24 06:06:12', -1, 2, 0, NULL),
+(16, 'JankoPoslePromene', '2021-05-24 00:00:00', -1, 2, 0, NULL),
+(17, 'votka', '2021-05-24 09:34:28', -1, 2, 0, NULL),
+(18, 'Nov', '2021-05-24 00:00:00', -1, 2, 0, NULL),
+(19, 'Janko', '2021-05-24 00:00:00', -1, 2, 0, NULL),
+(20, 'Svetozar', '2021-05-24 00:00:00', -1, 2, 0, NULL),
+(21, 'Uros', '2021-05-24 00:00:00', -1, 2, 0, NULL),
+(22, 'Danas2', '2021-05-24 00:00:00', 3, 2, 0, NULL),
+(23, 'Danas3', '2021-05-24 00:00:00', 5, 2, 0, NULL),
+(24, 'Sutra1', '2021-05-25 00:00:00', 0, 2, 0, NULL),
+(25, 'Danas4', '2021-05-25 00:00:00', 0, 2, 0, NULL),
+(26, 'Danas5', '2021-05-24 00:00:00', 0, 2, 0, NULL),
+(27, 'Tuesday', '2021-05-25 00:00:00', 4, 2, 0, NULL),
+(28, 'Danas6', '2021-05-24 00:00:00', 0, 2, 0, NULL),
+(29, 'Danas7', '2021-05-24 00:00:00', 5, 2, 0, NULL),
+(30, 'Tuesday2', '2021-05-25 00:00:00', 4, 2, 0, NULL),
+(31, 'Wednesday', '2021-05-26 00:00:00', 5, 2, 0, NULL),
+(32, 'Liga evrope', '2021-05-26 00:00:00', 4, 2, 0, NULL),
+(33, 'nesto', '2021-05-28 00:00:00', -1, 2, 0, NULL),
+(34, 'nesto2', '2021-05-28 00:00:00', -1, 2, 0, NULL),
+(35, 'danasjelepdan', '2021-05-28 08:19:27', 0, 2, 0, NULL);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `alarm`
+--
+ALTER TABLE `alarm`
+  ADD CONSTRAINT `idTask` FOREIGN KEY (`idTask`) REFERENCES `task` (`idtask`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `labela_task`
+--
+ALTER TABLE `labela_task`
+  ADD CONSTRAINT `idlabela` FOREIGN KEY (`idlabela`) REFERENCES `labela` (`idlabela`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `idtaskk` FOREIGN KEY (`idtaskk`) REFERENCES `task` (`idtask`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `obavestenja`
+--
+ALTER TABLE `obavestenja`
+  ADD CONSTRAINT `idkorisnik` FOREIGN KEY (`idkorisnik`) REFERENCES `korisnik` (`idkorisnik`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `premium`
+--
+ALTER TABLE `premium`
+  ADD CONSTRAINT `idkorisnikPremium` FOREIGN KEY (`idkorisnikPremium`) REFERENCES `korisnik` (`idkorisnik`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `projekat`
+--
+ALTER TABLE `projekat`
+  ADD CONSTRAINT `idKorisnikProjekat` FOREIGN KEY (`idKorisnik`) REFERENCES `korisnik` (`idkorisnik`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `projekat_task`
+--
+ALTER TABLE `projekat_task`
+  ADD CONSTRAINT `idPro` FOREIGN KEY (`idPro`) REFERENCES `projekat` (`idProjekat`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `idTaskPro` FOREIGN KEY (`idTaskPro`) REFERENCES `task` (`idtask`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `sekcija`
+--
+ALTER TABLE `sekcija`
+  ADD CONSTRAINT `idProSekcija` FOREIGN KEY (`idProSekcija`) REFERENCES `projekat` (`idProjekat`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `task`
+--
+ALTER TABLE `task`
+  ADD CONSTRAINT `idKorisnikTask` FOREIGN KEY (`idkorisnik`) REFERENCES `korisnik` (`idkorisnik`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `idSekcija` FOREIGN KEY (`idSekcija`) REFERENCES `sekcija` (`idSekcija`) ON UPDATE CASCADE;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-23 21:57:24

@@ -1,0 +1,236 @@
+.lightblue{
+    height: 50px;
+    background-image: url("http://localhost/PSI-project/Implementacija/img/backgroundDark.jpg");
+    background-size: 100% 100%;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(247, 247, 247);
+    font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+}
+#user{
+  color:white;  
+  text-align: 
+      center;font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+  background-color: black;
+}
+
+.navbar-brand{
+    height: 50px;
+}
+
+.nav-link{
+    color:white;
+}
+#right li {
+    padding-left: 5px;
+}
+
+#right a:hover {
+    border-bottom: white solid 2px;
+}
+#right img{
+    width: 26px;
+}
+#product{
+    color:black;  
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    background-color: white;
+}
+.dropdown-menu{
+    background-color: gray;
+    font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    
+}
+.dropdown-item{
+    color: white;
+}
+
+.dropdown-item{
+    color: #40a1ef;
+    width:200px;
+}
+#logo{
+    width: 200px;
+    height: 100%;
+    
+}
+#right{
+    float: right;
+}
+.header{ 
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#right li {
+    padding-left: 5px;
+}
+
+#right a:hover {
+    border-bottom: white solid 2px;
+}
+#premiumHeader{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#imgDiv img{
+   width: 8%;
+   margin-left: 300px;
+   margin-top: 10px;
+}
+
+#firstlastname{
+    font-weight: bolder;
+}
+#email{
+    font-size: 14px;
+}
+#name{
+    text-align: right;
+    float: left;
+}
+#imgandname{
+    margin-right: 300px;
+}
+
+#imgandname img{
+    margin-top: 17px;
+    margin-left: 5px;
+}
+#surrounded{
+    width: 33%;
+    height: auto;
+    background-color: rgb(230, 227, 227);
+    margin: auto;
+    margin-left: 500px;
+    margin-top: 100px;
+    border-radius: 10px;
+    padding-top: 10px;
+
+    
+}
+
+#mmyy{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#mmyy p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#mmyy input{
+    width: 100px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#textboxes input{
+    width: 80%;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    padding-right: 80px;
+    
+}
+
+#visa{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#visa img{
+    width: 20%;
+}
+
+.btn{
+    margin-top: 30px;
+}
+
+.btn input{
+    font-family: 'Lato',sans-serif;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+}
+.progress {
+  width: 150px;
+  height: 150px;
+  background: none;
+  position: relative;
+}
+
+.progress::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 6px solid #eee;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress>span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.progress .progress-left {
+  left: 0;
+}
+
+.progress .progress-bar {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-width: 8px;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+}
+
+.progress .progress-left .progress-bar {
+  left: 100%;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  border-left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.progress .progress-right {
+  right: 0;
+}
+
+.progress .progress-right .progress-bar {
+  left: -100%;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-right: 0;
+  -webkit-transform-origin: center right;
+  transform-origin: center right;
+}
+
+.progress .progress-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
