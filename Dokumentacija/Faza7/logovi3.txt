@@ -1,0 +1,70 @@
+TP1: Administrator savlje obavestenje svim korisnicima
+Preduslovi: Administrator mora da bude ulogovan na nalog
+	1. Administrator unosi naslov obavestenja u polje predvidjeno za to
+	2. Administrator unosi sadrzaj obavestenja u polje predvidjeno za to
+	3. Administrator potvrdjuje formu pritiskom na dugmo "Confirm"
+	4. Svi korisnici treba da dobiju obavestenje u padajucem meniju sa slikom zvonceta.
+TP2: Administrator salje obavestenje odredjenom korisniku
+Preduslovi: Administrator mora da bude ulogovan na nalog
+	1. Administrator unosi naslov obavestenja u polje predvidjeno za to
+	2. Administrator unosi korisnicko ime korisnika kome zeli da posalje obavestenje u polje predvidjeno za to
+	3. Administrator unosi sadrzaj obavestenja u polje predvidjeno za to
+	4. Administrator potvrdjuje formu pritiskom na dugmo "Confirm"
+	5. Korisnik treba da dobije obavestenje u padajucem meniju sa slikom zvonceta.
+TP3: Administrator salje obavestenje nepostojecem korisniku
+Preduslovi: Administrator mora da bude ulogovan na nalog
+	1. Administrator unosi naslov obavestenja u polje predvidjeno za to
+	2. Administrator unosi korisnicko ime korisnika kome zeli da posalje obavestenje u polje predvidjeno za to
+	3. Administrator unosi sadrzaj obavestenja u polje predvidjeno za to
+	4. Administrator potvrdjuje formu pritiskom na dugmo "Confirm"
+	5. Iskace alert sa informaciom da zadati korisnik ne postoji
+TP4: Administrator dodeljuje premium prava na osnovu zahteva korisnika
+Preduslovi: Administrator mora da bude ulogovan.
+	    Administratoru mora da stigne zahtev od strane korisnika.
+	1. Administrator pritiska na ikonicu sa obavestenjima.
+	2. Pojavljuje se modal sa zahtevom.
+	3. Aministrator prihvata zahtev na dugme "Confirm".
+	4. Korisnik postaje premium korisnik.
+TP5: Administrator odbija da dodeli premium pravo korisniku na osnovu zahteva.
+Preduslovi: Administrator mora da bude ulogovan.
+	    Administratoru mora da stigne zahtev od strane korisnika.
+	1. Administrator pritiska na ikonicu sa obavestenjima.
+	2. Pojavljuje se modal sa zahtevom.
+	3. Aministrator odbija zahtev na dugme "Decline".
+	4. Korisnik nece postati premium korisnik.
+TP6: Administrator dodaljuje premium prava korisniku
+Preduslovi:Administrator mora da bude ulogovan.
+	   Korisnik ne sme da bude premium.
+	1. Administrator unosi koriscnicko ime u polje predvidjeno za to
+	2. Administrator unosi datum isteka premiuma korisiniku.
+	3. Administrator unosi broj kartice.
+	4. Administrator unosi datum isteka kartice u polje predvidjeno za to.
+	5. Administrator unosi korisnikov CVC.
+	6. Korisnik postaje premium.
+TP7: Administrator brise premium prava korisniku
+Preduslovi:Administrator mora da bude ulogovan.
+	   Korisnik mora da bude premium.
+	1. Administrator unosi koriscnicko ime u polje predvidjeno za to
+	2. Aministrator potvrdjuje formu pritiskom na dugme "Confirm".
+	3. Korisnik nije vise premium.
+TP8: Korisnik zeli da arhivira projekat
+Preduslovi: Korisnik je prijavljen
+	    Projekat nije vec arhiviran
+	1. Prelaskom misa preko zeljenog projekta korisniku se pojavljuju tri tackice, cijim klikom se otvara modal.
+	2. U novo otvorenom modalu, korisnik cekira opciju “Archive”.
+	3. Klikom na dugme “Confirm” projekat se arhivira, i pojavljuje u sekciji sa arhiviranim projektima. 
+TP9: Korisnik zeli da izbaci projekat iz grupe arhiviranih
+Preduslovi: Korisnik je prijavljen
+	    Projekat je vec arhiviran
+	1. Prelaskom misa preko zeljenog projekta korisniku se pojavljuju tri tackice, cijim klikom se otvara modal.
+	2. U novo otvorenom modalu, korisnik cekira opciju “Unarchive”.
+	3. Klikom na dugme “Confirm” projekat se izbacuje, i pojavljuje u sekciji sa aktivnim projektima.
+TP10: Dodavanje taska:
+Preduslov: Korisnik je prijavljen
+	1. Unos podataka potrebnih za kreiranje aktivnosti
+	2. Kreiranje aktivnosti i unos u bazu podataka 
+	3. Aktivnots se prikazuje u inboxu.
+TP11: Brisanje aktivnosti:
+Preduslov: Korisnik je prijavljen
+	1. Korisnik cekira aktivnost koju zeli da obrise.
+	2. Aktivnost se vise ne vidi u inboxu.

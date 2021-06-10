@@ -1,0 +1,103 @@
+TP Dodavanje labele
+Preduslovi: Korisnik korisnik koji ima premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem
+	1. Pri dodavanju novog taska ili editovanja postojeceg u polje predvidjeno za ime labele uneti ime labele.
+	2. Pritiskom na dugme 'Add new task' ili 'Change' potvrdjuje formu.
+	3. U odeljku za labele bi trebalo da se pojavi nova labela sa imenom iz forme.
+	
+
+TP Podesavanje naloga (Promena imena)
+Preduslovi: Korisnik sa ili bez premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem.
+	1. Korisnik odlazi na stranicu za podesavanja
+	2. Pronalazi link sa natpisom 'change' pored labele na kojoj pise 'Name'
+	3. Pojavljuje se polje u koje ako zeli treba da upise novo ime.
+	4. Klikom na dugme 'Confirm' porkece se forma koja vrsi izmene u bazi.
+	
+TP Podesavanje naloga (Promena prezimena)
+Preduslovi: Korisnik sa ili bez premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem.
+	1. Korisnik odlazi na stranicu za podesavanja
+	2. Pronalazi link sa natpisom 'change' pored labele na kojoj pise 'Lastname'
+	3. Pojavljuje se polje u koje ako zeli treba da upise novo prezime.
+	4. Klikom na dugme 'Confirm' porkece se forma koja vrsi izmene u bazi.
+	
+TP Podesavanje naloga (Promena korisnickog imena) uspesno
+Preduslovi: Korisnik sa ili bez premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem.
+	1. Korisnik odlazi na stranicu za podesavanja
+	2. Pronalazi link sa natpisom 'change' pored labele na kojoj pise 'username'
+	3. Pojavljuje se polje u koje ako zeli treba da upise novi username.
+	4. Klikom na dugme 'Confirm' porkece se forma koja vrsi izmene u bazi.
+	
+TP Podesavanje naloga (Promena korisnickog imena) neuspesno
+Preduslovi: Korisnik sa ili bez premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem.
+	1. Korisnik odlazi na stranicu za podesavanja
+	2. Pronalazi link sa natpisom 'change' pored labele na kojoj pise 'username'
+	3. Pojavljuje se polje u koje ako zeli treba da upise novi username.
+	4. Klikom na dugme 'Confirm' porkece se forma koja vrsi izmene u bazi.
+	
+TP Podesavanje naloga (Promena sifre) uspesno
+Preduslovi: Korisnik sa ili bez premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem.
+	1. Korisnik odlazi na stranicu za podesavanja
+	2. Pronalazi link sa natpisom 'change' pored labele na kojoj pise 'password'
+	3. Pojavljuje se polje u koje ako zeli treba da upise novu sifra.
+	4. Klikom na dugme 'Confirm' porkece se forma koja vrsi izmene u bazi.
+	
+TP Podesavanje naloga (Promena sifre) neuspesno
+Preduslovi: Korisnik sa ili bez premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem.
+	1. Korisnik odlazi na stranicu za podesavanja
+	2. Pronalazi link sa natpisom 'change' pored labele na kojoj pise 'password'
+	3. Pojavljuje se polje u koje ako zeli treba da upise novu sifra.
+	4. Klikom na dugme 'Confirm' porkece se forma koja vrsi izmene u bazi.
+	
+TP Ppretraga aktivnosti 
+Preduslovi: Korisnik sa ili bez premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem.
+	1. Korisnik unosi zeljeni tekst za pretragu u polje za search
+	2. Klikom na enter potvrdjuje formu i prikazuju mu se zeljeni rezultati
+	
+TP Sign up neuspesno email
+Preduslovi: Nema
+	1. Korisnik unosi ime u polje predvidjeno za to
+	2. Korisnik unosi prezimeime u polje predvidjeno za to
+	3. Korisnik unosi email u polje predvidjeno za to
+	4. Korisnik unosi korisnicko ime u polje predvidjeno za to
+	5. Korisnik unosi sifru u polje predvidjeno za to
+	6. Bice ispisiana poruka o gresci za mejl
+	
+TP Sign up neuspesno lozinka
+Preduslovi: Nema
+	1. Korisnik unosi ime u polje predvidjeno za to
+	2. Korisnik unosi prezimeime u polje predvidjeno za to
+	3. Korisnik unosi email u polje predvidjeno za to
+	4. Korisnik unosi korisnicko ime u polje predvidjeno za to
+	5. Korisnik unosi sifru u polje predvidjeno za to
+	6. Bice ispisiana poruka o gresci za lozinku
+
+TP Sign up neuspesno korisnicko ime
+Preduslovi: Nema
+	1. Korisnik unosi ime u polje predvidjeno za to
+	2. Korisnik unosi prezimeime u polje predvidjeno za to
+	3. Korisnik unosi email u polje predvidjeno za to
+	4. Korisnik unosi korisnicko ime u polje predvidjeno za to
+	5. Korisnik unosi sifru u polje predvidjeno za to
+	6. Bice ispisiana poruka o gresci za korisnicko ime
+	
+TP Sign up uspesno
+Preduslovi: Nema
+	1. Korisnik unosi ime u polje predvidjeno za to
+	2. Korisnik unosi prezimeime u polje predvidjeno za to
+	3. Korisnik unosi email u polje predvidjeno za to
+	4. Korisnik unosi korisnicko ime u polje predvidjeno za to
+	5. Korisnik unosi sifru u polje predvidjeno za to
+	6. Klikom na dugme 'Confirm' prebacuje na stranicu za registrovanog korisnika
+	
+TP Dodavanje projekta
+Preduslovi: Korisnik sa ili bez premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem.
+	1. Korisnik klikom na plus u sekciji za projekte pokrece formu za dodavanje novog projekta
+	2. Otvorice se modal sa formom za projekat
+	3. Korisnik upisuje ime projekta u polje predvidjeno za to.
+	4. Korisnik bira jednu od dve opcije za tip projekta
+	5. Klikom na dugme 'Add' pokrece formu za dodavanje projekta
+	
+TP Brisanje projekta
+Preduslovi: Korisnik sa ili bez premium prava, postoji u bazi i ima svoje kredencijale i ulogovan je na sistem.
+	1. Korisnik klikom na 3 tacke na projektu koji zeli, pokrece formu za promenu projekta
+	2. Cekira radio dugme za birsanje projekta
+	3. Pritiskom na dugme 'confirm' pokrece formu za brisanje projekta

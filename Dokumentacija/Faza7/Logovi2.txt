@@ -1,0 +1,117 @@
+TP1: Korisnik se uspesno loguje na sistem
+	Preduslov: Korisnik mora da ima uspesno napravljen nalog
+	1. Korisnik unosi svoje korisnicko ime u predvidjeno polje
+	2. Korisnik unosi svoju lozinku u predvidjeno polje
+	3. Korisnik potvrdjuje svoju prijavu pritiskom na dugme "Log in"
+	4. Korisnik se prebacuje na svoju pocetnu stranu.
+TP2: Korisnik unosi pogresno korisnicko ime 
+	Preduslov: Korisnik mora da ima uspesno napravljen nalog
+	1. Korisnik unosi netacno korisnicko ime u predvidjeno pole
+	2. Korisnik unosi svoju lozinku u za to predvidjeno polje.
+	3. Korisnik potvrdjuje svoju prijavu pritiskom na dugme "Log In".
+	4. Korisniku se ispisuje poruka da korisnik sa zadatim korisnickim imenom ne postoji, i omogucava ponovan unos podataka
+TP3: Korisnik unosi pogresnu lozinku
+	Preduslov: Korisnik mora da ima uspesno napravljen nalog
+	1. Korisnik unosi svoje korisnicko ime u za to predvidjeno polje
+	2. Korisnik unosi netacnu lozinku u za to predvidjeno polje.
+	3. Korisnik potvrdjuje svoju prijavu pritiskom na dugme "Log In".
+	4. Korisniku se ispisuje poruka o pogresnoj lozinci, i omogucava mu se ponovan unos podataka.
+TP4: Pregled aktivnosti-Inbox
+	Preduslov: Korisnik mora biti ulogovan na svoj nalog.
+	1. Korisnik sa pocetne strane pritiska dugme "Inbox".
+	2. Korisniku se prikazuju sve njegove aktivnosti.
+TP5: Pregled aktivnosti-Today
+	Preduslov: Korisnik mora biti ulogovan na svoj nalog.
+	1. Korisnik sa pocetne strane pritiska dugme "Today".
+	2. Korisniku se prikazuju sve njegove aktivnosti za taj dan.
+TP6: Pregled aktivnosti-Upcoming
+	Preduslov: Korisnik mora biti ulogovan na svoj nalog.
+	1. Korisnik sa pocetne strane pritiska dugme "Upcoming".
+	2. Korisniku se prikazuju sve njegove aktivnosti u narednih nedelju dana.
+TP7: Korisnik uspesno kreira novu sekciju
+	Preduslov: Korisnik mora biti ulogovan na svoj nalog, i imati bar jedan kreiran projekat sa opcijom tabelarnog prikaza.
+	1. Korisnik sa pocetne strane, iz padajuceg menija bira projekat, kome zeli dodati novu sekciju.
+	2. Pritiskom na odredjeni projekat, prikazuje mu se pregled svih aktivnosti tog projekta.
+	3. Korisnik pritiska dugme "Section".
+	4. Korisniku se prikazuje forma sa informacijama o sekciji.
+	5. Korisnik unosi ime sekcije, i cekira radio-dugme "Add new Section".
+	6. Korisnik potvrdjuje formu pritiskom na dugme "Confirm".
+	7. Korisniku se prikazuje projekat sa novo kreiranom sekcijom.
+TP8: Korisnik neuspesno kreira novu sekciju, ne unoseci sve potrebne podatke
+	Preduslov: Korisnik je prijavljen na svoj nalog, i ima kreiran projekat sa tabelarnim prikazom.
+	1. Korisnik sa pocetne strane, iz padajuceg menija bira projekat, kome zeli dodati novu sekciju.
+	2. Pritiskom na odredjeni projekat, prikazuje mu se pregled svih aktivnosti tog projekta.
+	3. Korisnik pritiska dugme "Section".
+	4. Korisniku se prikazuje forma sa informacijama o sekciji.
+	5. Korisnik pritiska dugme "Confirm".
+	6. Korisniku se ponovo prikazuje forma sa porukom da je odredjeno polje obavezno.
+TP9: Korisnik neuspesno kreira novu sekciju, unoseci vec postojece ime
+	Preduslov: Korisnik je prijavljen na svoj nalog, i ima kreiran projekat sa tabelarnim prikazom.
+	1. Korisnik sa pocetne strane, iz padajuceg menija bira projekat, kome zeli dodati novu sekciju.
+	2. Pritiskom na odredjeni projekat, prikazuje mu se pregled svih aktivnosti tog projekta.
+	3. Korisnik pritiska dugme "Section".
+	4. Korisniku se prikazuje forma sa informacijama o sekciji.
+	5. Korisnik unosi ime sekcije koje vec postoji u datom projektu i cekira radio-dugme "Add new Task".
+	6. Korisnik potvrdjuje formu pritiskom na dugme "Confirm".
+	7. Korisnik se obavestava da ime sekcije vec postoji.
+TP10: Korisnik uspesno brise sekciju iz projekta
+	Preduslov: Korisnik mora biti ulogovan na svoj nalog, i imati bar jedan kreiran projekat sa opcijom tabelarnog prikaza.
+	1. Korisnik sa pocetne strane, iz padajuceg menija bira projekat, kome zeli obrisati sekciju.
+	2. Pritiskom na odredjeni projekat, prikazuje mu se pregled svih aktivnosti tog projekta.
+	3. Korisnik pritiska dugme "Section".
+	4. Korisniku se prikazuje forma sa informacijama o sekciji.
+	5. Korisnik unosi ime sekcije, i cekira radio-dugme "Delete Section".
+	6. Korisnik potvrdjuje formu pritiskom na dugme "Confirm".
+	7. Sekcija je uspesno obrisana.
+TP11: Korisnik neuspesno brise sekciju iz projekta, unoseci ime sekcije koje ne postoji
+	Preduslov: Korisnik mora biti ulogovan na svoj nalog, i imati bar jedan kreiran projekat sa opcijom tabelarnog prikaza.
+	1. Korisnik sa pocetne strane, iz padajuceg menija bira projekat, kome zeli obrisati sekciju.
+	2. Pritiskom na odredjeni projekat, prikazuje mu se pregled svih aktivnosti tog projekta.
+	3. Korisnik pritiska dugme "Section".
+	4. Korisniku se prikazuje forma sa informacijama o sekciji.
+	5. Korisnik unosi ime sekcije, i cekira radio-dugme "Delete Section".
+	6. Korisnik potvrdjuje formu pritiskom na dugme "Confirm".
+	7. Korisniku se ispisuje poruka da sekcija sa trazenim imenom ne postoji.
+TP12: Korisnik neuspesno brise sekciju iz projekta, ne unesavsi sve potrebne podatke.
+	Preduslov: Korisnik mora biti ulogovan na svoj nalog, i imati bar jedan kreiran projekat sa opcijom tabelarnog prikaza.
+	1. Korisnik sa pocetne strane, iz padajuceg menija bira projekat, kome zeli obrisati sekciju.
+	2. Pritiskom na odredjeni projekat, prikazuje mu se pregled svih aktivnosti tog projekta.
+	3. Korisnik pritiska dugme "Section".
+	4. Korisniku se prikazuje forma sa informacijama o sekciji.
+	5. Korisnik cekira radio-dugme "Delete Section".
+	6. Korisnik potvrdjuje formu pritiskom na dugme "Confirm".
+	7. Korisniku se ispisuje poruka da je polje ime obavezno.	
+TP13: Prioritiranje aktivnosti, pri pravljenju nove aktivnosti
+	Preduslov: Korisnik je prijavljen na svoj nalog
+	1. Korisnik sa nekog od pregleda aktivnosti pritiska dugme "Add new Task".
+	2. Korisniku se prikazuje forma, koju treba da popuni sa informacijama o novoj aktivnosti.
+	3. Korisnik iz padajuce liste bira kog ce prioriteta biti njegova aktivnost(1-5).
+	4. Nakon kreiranja aktivnosti, ona ce biti prikazana odredjenom bojom u zavisnosti od prioriteta.
+TP14: Prioritiranje aktivnosti, pri promeni vec postojece aktivnosti
+	Preduslov: Korisnik je ulogovan na svoj nalog, i ima kreiranu aktivnost koju zeli da promeni 
+	1. Korisnik u nekom od pregleda aktivnosti, pritiskaa na aktivnost koju zeli da menja.
+	2. Korisniku se prikazuje forma za promenu aktivnosti.
+	3. U odeljku za prioritet korisnik iz padajuce liste bira novi prioritet, i potvrdjuje svoju promenu.
+TP15: Sortiranje aktivnosti po prioritetu rastuce
+	Preduslov: Korisnik je prijavljen na svoj nalog
+	1. Korisnik sa nekog od pregleda aktivnosti pritiska dugme za sortiranje u gornjem desnom uglu.
+	2. Iz padajuce liste bira kriterijum pretrage "Priority Ascending"
+	3. Prikazane aktivnosti su sada sortirane.
+TP16: Sortiranje aktivnosti po prioritetu opadajuce
+	Preduslov: Korisnik je prijavljen na svoj nalog
+	1. Korisnik sa nekog od pregleda aktivnosti pritiska dugme za sortiranje u gornjem desnom uglu.
+	2. Iz padajuce liste bira kriterijum pretrage "Priority Descending"
+	3. Prikazane aktivnosti su sada sortirane.
+TP17: Sortiranje aktivnosti leksikografski rastuce
+	Preduslov: Korisnik je prijavljen na svoj nalog
+	1. Korisnik sa nekog od pregleda aktivnosti pritiska dugme za sortiranje u gornjem desnom uglu.
+	2. Iz padajuce liste bira kriterijum pretrage "Alphabetical Ascending"
+	3. Prikazane aktivnosti su sada sortirane.
+TP18: Sortiranje aktivnosti leksikografski opadajuce
+	Preduslov: Korisnik je prijavljen na svoj nalog
+	1. Korisnik sa nekog od pregleda aktivnosti pritiska dugme za sortiranje u gornjem desnom uglu.
+	2. Iz padajuce liste bira kriterijum pretrage "Alphabetical Descending"
+	3. Prikazane aktivnosti su sada sortirane.	
+	
+	
+	
